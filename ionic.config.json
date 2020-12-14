@@ -1,0 +1,7 @@
+{
+  "name": "culture_app_mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
