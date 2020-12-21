@@ -5,6 +5,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import Landing from './pages/Landing';
+import SignUp from './pages/SignUp';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,17 +26,19 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import withAuthentication from "./session/withAuthorization"
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route path="/home" component={Home} exact={true} />
         <Route exact path="/" render={() => <Redirect to="/home" />} />
-        <Route exact path="/signup" component={SignIn}/>
+        <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/landing" component={Landing}/>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );
 
-export default App;
+export default withAuthentication(App);
